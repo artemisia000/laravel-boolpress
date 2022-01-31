@@ -17,8 +17,11 @@ export default {
 
 <style lang="scss" >
 
+div{
+    
 h1{
-    color: #025400;
+    color: red;
+}
 }
 
 </style>
