@@ -10,6 +10,6 @@ class HomeController extends Controller
     //Admin homepage
 
     public function index() {
-        return 'dashbord admin';
+        return view('admin.home');
     }
 }
