@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Post;
 
 class PostController extends Controller
@@ -39,15 +40,35 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //validazione
-
+        //regola per validazione
         $request -> validate([
             'title' => 'required|max:200',
             'description' => 'required|max:500',
+        ], 
+        //validazione messaggio custom
+        [
+            'required' => 'The :attribute is a required filed!',
+            'max' => 'Max :max characters allowed for the :attribute',
         ]);
 
-        $post = $request->all();
-        dump($post);
+        $data = $request->all();
+        dump($data);
+
+        //CREA NUOVO POST
+        $new_post = new Post();
+        //genero slug univoco
+        $slug = Str::slug($data['title'], '-');
+        $count = 1;
+        //ciclo per trovare post con slug attuale
+        while(Post::where('slug', $slug)){
+            //genero nuovo slug per contatore
+            $slug .= '-' . $count;
+            $count ++;
+        }
+        $data['slug'] = $slug;
+        
+        //FILLABLE
+        $new_post->fill($data);
     }
 
     /**
