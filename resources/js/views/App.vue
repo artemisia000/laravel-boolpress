@@ -1,11 +1,8 @@
 
 <template>
-     <div>
-         <h1>Vue feat Front</h1>
-         
+     <div class="container text-center mt-5">
+         <h1>Welcome</h1>
      </div>
-
-   
 </template>
 
 <script>
@@ -20,7 +17,7 @@ export default {
 div{
     
 h1{
-    color: red;
+    color: rgba(18, 143, 101, 0.932);
 }
 }
 

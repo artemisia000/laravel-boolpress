@@ -102,9 +102,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App'
 });
@@ -123,7 +120,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "div h1 {\n  color: red;\n}", ""]);
+exports.push([module.i, "div h1 {\n  color: rgba(18, 143, 101, 0.932);\n}", ""]);
 
 // exports
 
@@ -1246,7 +1243,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Vue feat Front")])])
+    return _c("div", { staticClass: "container text-center mt-5" }, [
+      _c("h1", [_vm._v("Welcome")]),
+    ])
   },
 ]
 render._withStripped = true
