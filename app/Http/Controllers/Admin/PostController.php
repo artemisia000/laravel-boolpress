@@ -60,7 +60,7 @@ class PostController extends Controller
         $slug = Str::slug($data['title'], '-');
         $count = 1;
         //ciclo per trovare post con slug attuale
-        while(Post::where('slug', $slug)){
+        while(Post::where('slug', $slug)->first()){
             //genero nuovo slug per contatore
             $slug .= '-' . $count;
             $count ++;
@@ -69,6 +69,9 @@ class PostController extends Controller
         
         //FILLABLE
         $new_post->fill($data);
+        $new_post->save();
+
+        return redirect()->route('admin.posts.show', $new_post->slug);
     }
 
     /**
@@ -95,7 +98,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        if(! $post){
+            abort(404);
+        }
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
