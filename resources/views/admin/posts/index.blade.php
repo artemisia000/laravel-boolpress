@@ -31,7 +31,7 @@
                     <td>
                         <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id)}}">Edit</a>
                     </td>
-                    <td>
+                    <td >
                         <form action=" {{ route('admin.posts.destroy', $post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
