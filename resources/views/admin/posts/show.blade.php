@@ -5,6 +5,10 @@
          <div class="mt-5" >
             <h1>{{  $post->title }} </h1>
          </div>
+         <div class="mt-2">
+             <strong>Category:</strong>
+             {{ $post->category->name }}
+         </div>
         
          <div class="mt-5">
              <a class="btn btn-success" href="{{ route('admin.posts.edit', $post->id) }} ">Edit</a>
