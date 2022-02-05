@@ -6,8 +6,9 @@
             <h1>{{  $post->title }} </h1>
          </div>
          <div class="mt-2">
-             <strong>Category:</strong>
-             {{ $post->category->name }}
+             <strong>Category:
+              {{ $post->category->name }}
+             </strong>   
          </div>
         
          <div class="mt-5">

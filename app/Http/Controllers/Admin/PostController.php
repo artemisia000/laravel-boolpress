@@ -48,7 +48,7 @@ class PostController extends Controller
         $request -> validate([
             'title' => 'required|max:200',
             'description' => 'required|max:500',
-            'id' => 'nullable|exists:categories,id'
+            'category_id' => 'nullable|exists:categories,id'
         ], 
         //validazione messaggio custom
         [
@@ -104,11 +104,12 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $categories = Category::all();
 
         if(! $post){
             abort(404);
         }
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**

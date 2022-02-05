@@ -38,12 +38,12 @@
                         <option value="">Uncategorized</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}"
-                                @if($category->id == old('id'))selected @endif>
+                                @if($category->id == old('category_id', $post->category_id))selected @endif>
                                 {{ $category->name }}
                             </option>
                         @endforeach
                     </select>
-                    @error('category')
+                    @error('category_id')
                         <div class="text-info">{{ $message }}</div>
                     @enderror
                 </div>
