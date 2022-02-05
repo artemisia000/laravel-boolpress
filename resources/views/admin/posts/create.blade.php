@@ -33,8 +33,8 @@
 
              {{--CATEGORIES--}}
                 <div>
-                    <label for="id" class="mt-3" >Category</label>
-                    <select class="form-control" name="id" id="id">
+                    <label for="category_id" class="mt-3" >Category</label>
+                    <select class="form-control" name="category_id" id="category_id">
                         <option value="">Uncategorized</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}"
