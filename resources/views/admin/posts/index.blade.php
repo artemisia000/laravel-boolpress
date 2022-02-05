@@ -15,23 +15,24 @@
          <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th colspan="3">Actions</th>
+                    <th class="col-1 ms-4">ID</th>
+                    <th class="col-2 ms-4">Title</th>
+                    <th colspan="3" class="col-9">Actions</th>
                 </tr>
             </thead>
+            <hr>
             <tbody>
                 @foreach($posts as $post)
                 <tr>
-                    <td>{{ $post->id }}</td>
-                    <td>{{ $post->title }}</td>
-                    <td>
+                    <td class="col-1 ms-4">{{ $post->id }}</td>
+                    <td class="col-2 ms-4">{{ $post->title }}</td>
+                    <td class="col-3">
                         <a class="btn btn-primary" href="{{ route('admin.posts.show', $post->slug) }} ">Show</a>
                     </td>
-                    <td>
+                    <td class="col-3">
                         <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id)}}">Edit</a>
                     </td>
-                    <td >
+                    <td class="col-3">
                         <form action=" {{ route('admin.posts.destroy', $post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')

@@ -29,12 +29,29 @@
             </div>
             @error('description')
                    <div class="text-info">{{ $message }}</div>
-                @enderror
+            @enderror
+
+             {{--CATEGORIES--}}
+                <div>
+                    <label for="id" class="mt-3" >Category</label>
+                    <select class="form-control" name="id" id="id">
+                        <option value="">Uncategorized</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}"
+                                @if($category->id == old('id'))selected @endif>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category')
+                        <div class="text-info">{{ $message }}</div>
+                    @enderror
+                </div>
+        
 
             <button class="btn btn-primary mt-3" type="submit">
                 Create a new post
             </button>
-
         </form>
      </div>
 @endsection
