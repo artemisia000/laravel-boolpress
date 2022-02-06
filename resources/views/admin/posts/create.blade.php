@@ -20,6 +20,7 @@
             <div>
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+                    
                 @error('title')
                    <div class="text-info">{{ $message }}</div>
                 @enderror
@@ -45,6 +46,25 @@
                     </select>
                     @error('category_id')
                         <div class="text-info">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{--TAGS--}}
+                <div class="mb-4 mt-3">
+                    <h6>Tags</h6>
+
+                    @foreach ( $tags as $tag ) 
+                       <span>
+                           <input type="checkbox" name="tags[]" id="tag{{ $loop->iteration }}" value="{{ $tag->id }}"
+                                @if (in_array($tag->id, old('tags',[]))) checked @endif>
+                                
+                           <label for="tag" {{ $loop->iteration }}>
+                              {{ $tag->name }}
+                           </label>
+                       </span>
+                    @endforeach
+                    @error('tags')
+                       <div class="text-info">{{ $message }}</div>
                     @enderror
                 </div>
         
