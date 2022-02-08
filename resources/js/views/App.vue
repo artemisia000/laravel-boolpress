@@ -6,11 +6,10 @@
             <article v-for="post in posts" :key="`post-${post-id}`" >
                 <h2>{{ post.title }}</h2>
                 <div class="mb-3">
-                    {{ post.created_at }}
+                    {{formatDate( post.created_at )}}
                 </div>
-                <div>
-                    {{ post.description }}
-                </div>
+                <p>{{ getExcerpts(post.description, 100) }}</p>
+  
             </article>
          </div>
          <div v-else>
@@ -43,10 +42,24 @@ export default {
                 
                 this.posts = res.data;
                 });
-        }
-    },
+        },
+        getExcerpts(text, Maxlength) {
+            if(text.length > Maxlength) {
+                return text.substring(0, Maxlength)+ '...';
+            }
+            return text;
+        },
+        formatDate(postDate) {
 
+            const date = new Date(postDate);
+
+            const formatted = new Intl.DateTimeFormat('it-IT').format(date);
+            return formatted;
+        }
+
+    }
 }
+
 </script>
 
 <style lang="scss" >

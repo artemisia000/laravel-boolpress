@@ -1930,7 +1930,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -1951,6 +1950,18 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
         _this.posts = res.data;
       });
+    },
+    getExcerpts: function getExcerpts(text, Maxlength) {
+      if (text.length > Maxlength) {
+        return text.substring(0, Maxlength) + '...';
+      }
+
+      return text;
+    },
+    formatDate: function formatDate(postDate) {
+      var date = new Date(postDate);
+      var formatted = new Intl.DateTimeFormat('it-IT').format(date);
+      return formatted;
     }
   }
 });
@@ -3098,18 +3109,12 @@ var render = function () {
               _c("div", { staticClass: "mb-3" }, [
                 _vm._v(
                   "\n               " +
-                    _vm._s(post.created_at) +
+                    _vm._s(_vm.formatDate(post.created_at)) +
                     "\n           "
                 ),
               ]),
               _vm._v(" "),
-              _c("div", [
-                _vm._v(
-                  "\n               " +
-                    _vm._s(post.description) +
-                    "\n           "
-                ),
-              ]),
+              _c("p", [_vm._v(_vm._s(_vm.getExcerpts(post.description, 100)))]),
             ])
           }),
           0
