@@ -21,6 +21,7 @@
                 Prev
             </button>
 
+            <!--NUMBER BUTTONS-->
             <button
                 class="btn m-2"
                 :class="pagination.current === i ? 'btn-primary' : 'btn-secondary'"
@@ -40,19 +41,23 @@
                 Next
             </button>
          </div>
-         <div v-else>
-             Loading...
-         </div>
+         <Loader v-else />
+         <!--<div v-else>
+             Loading
+         </div>-->
      </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Loader from '../components/Loader';
 
 
 export default {
     name: 'App',
-    components: {},
+    components: {
+        Loader,
+    },
     data() {
         return {
             posts: null,
