@@ -12,7 +12,7 @@
          @if ($posts->isEmpty())
          <p>No found. <a href=" {{ route('admin.posts.create') }} "> Create a new post</a></p>
          @else
-         <table>
+         <table class="table" >
             <thead>
                 <tr>
                     <th class="col-1 ms-4">ID</th>
@@ -20,7 +20,6 @@
                     <th colspan="3" class="col-9">Actions</th>
                 </tr>
             </thead>
-            <hr>
             <tbody>
                 @foreach($posts as $post)
                 <tr>

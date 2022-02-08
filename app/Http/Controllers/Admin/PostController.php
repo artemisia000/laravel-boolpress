@@ -62,7 +62,7 @@ class PostController extends Controller
         $data = $request->all();
         
         //dump data
-        dd($data);
+        //dd($data);
 
         //CREA NUOVO POST
         $new_post = new Post();
