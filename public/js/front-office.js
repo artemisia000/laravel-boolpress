@@ -1957,7 +1957,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Loader'
+  name: 'Loader',
+  props: {
+    text: String
+  }
 });
 
 /***/ }),
@@ -2027,8 +2030,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
-//
-//
 //
 //
 //
@@ -2165,6 +2166,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Tags__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Tags */ "./resources/js/components/Tags.vue");
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 //
 //
 //
@@ -2181,24 +2183,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PostDetail',
   components: {
-    Tags: _components_Tags__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Tags: _components_Tags__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -3499,7 +3491,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    loading post ccvue\n")])
+  return _c("div", [_vm._v("\n    " + _vm._s(_vm.text) + "\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3695,7 +3687,7 @@ var render = function () {
             ],
             2
           )
-        : _c("Loader"),
+        : _c("Loader", { attrs: { text: "Loading Blog" } }),
     ],
     1
   )
@@ -3761,23 +3753,28 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "container" }, [
-    _vm.post
-      ? _c(
-          "div",
-          [
-            _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Category:" + _vm._s(_vm.post.category.name))]),
-            _vm._v(" "),
-            _c("Tags", { attrs: { list: _vm.post.tags } }),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.post.description) + " ")]),
-          ],
-          1
-        )
-      : _c("div", [_vm._v("\n        Loading...\n    ")]),
-  ])
+  return _c(
+    "section",
+    { staticClass: "container" },
+    [
+      _vm.post
+        ? _c(
+            "div",
+            [
+              _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Category:" + _vm._s(_vm.post.category.name))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.post.description) + " ")]),
+              _vm._v(" "),
+              _c("Tags", { attrs: { list: _vm.post.tags } }),
+            ],
+            1
+          )
+        : _c("Loader", { attrs: { text: "Loading Post" } }),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

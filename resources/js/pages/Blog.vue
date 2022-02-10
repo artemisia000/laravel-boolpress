@@ -44,10 +44,8 @@
                 Next
             </button>
          </div>
-         <Loader v-else />
-         <!--<div v-else>
-             Loading
-         </div>-->
+         <Loader text="Loading Blog" v-else />
+   
      </div>
 </template>
 
