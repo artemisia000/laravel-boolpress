@@ -117,6 +117,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $tags = Tag::all();
         
+       
 
         if(! $post){
             abort(404);
