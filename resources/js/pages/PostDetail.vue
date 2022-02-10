@@ -5,16 +5,17 @@
 
           <h3>Category:{{ post.category.name }}</h3>
 
-          <div class="m-4">
+        <!--  <div class="m-4"> 
               <span
-              v-for="tag in post.tags"
-              :key="`tag-${tag.id}`"
-              class="badge badge-primary mr-2"          
-              >
-              {{ tag.name }}
+                v-for="tag in post.tags"
+                :key="`tag-${tag.id}`"
+                class="badge badge-primary mr-2"          
+                >
+                  {{ tag.name }}
               </span>
+          </div>-->
+          <Tags :list="post.tags"/>
 
-          </div>
 
           <p>{{ post.description }} </p>
       </div>
@@ -27,9 +28,14 @@
 
 <script>
 import axios from 'axios';
+import Tags from '../components/Tags';
 
 export default {
     name: 'PostDetail',
+    components: {
+        Tags,
+    },
+
     data() {
         return {
             post:null,
