@@ -2140,6 +2140,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PostDetail',
@@ -2152,7 +2172,15 @@ __webpack_require__.r(__webpack_exports__);
     this.getPostDetail();
   },
   methods: {
-    getPostDetail: function getPostDetail() {}
+    getPostDetail: function getPostDetail() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/posts/".concat(this.$route.params.slug)).then(function (res) {
+        _this.post = res.data;
+      })["catch"](function (err) {
+        return log.error(err);
+      });
+    }
   }
 });
 
@@ -3661,18 +3689,35 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", { staticClass: "container" }, [
+    _vm.post
+      ? _c("div", [
+          _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Category:" + _vm._s(_vm.post.category.name))]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "m-4" },
+            _vm._l(_vm.post.tags, function (tag) {
+              return _c(
+                "span",
+                {
+                  key: "tag-" + tag.id,
+                  staticClass: "badge badge-primary mr-2",
+                },
+                [_vm._v("\n            " + _vm._s(tag.name) + "\n            ")]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.post.description) + " ")]),
+        ])
+      : _c("div", [_vm._v("\n        Loading...\n    ")]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Post DEtail Here")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
