@@ -2,7 +2,7 @@
 <template>
     <div>
         <header>
-            header
+            <Header/>
         </header>
         <main>
             <router-view></router-view>
@@ -13,11 +13,12 @@
 </template>
 
 <script>
-
+import Header from '../components/Header';
 
 export default {
     name: 'App',
     components: {
+        Header,
     },
 
 }
