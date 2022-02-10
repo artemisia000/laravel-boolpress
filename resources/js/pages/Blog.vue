@@ -9,6 +9,9 @@
                     {{formatDate( post.created_at )}}
                 </div>
                 <p>{{ getExcerpts(post.description, 100) }}</p>
+                <router-link :to="{ name: 'post-detail', params: {slug: post.slug} } ">
+                      Read more 
+                </router-link>      
             </article>
 
             <!--paginazione-->

@@ -16,4 +16,12 @@ class PostController extends Controller
         $posts = Post::paginate(3);
         return response()->json($posts);
     }
+
+    //post details 
+    public function show($slug) {
+        
+    }
 }
+
+
+   
