@@ -19,7 +19,11 @@ class PostController extends Controller
 
     //post details 
     public function show($slug) {
-        
+        //prendere post da slug
+        $post = Post::where('slug', $slug)->first();
+
+        //ritorno dati in json
+        return response()->json($post);
     }
 }
 

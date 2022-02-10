@@ -6,9 +6,25 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'PostDetail',
+    data() {
+        return {
+            post:null,
+        }
+    },
 
+    created() {
+        this.getPostDetail();
+    },
+
+    methods: {
+        getPostDetail(){
+
+        }
+    }
 }
 </script>
 
