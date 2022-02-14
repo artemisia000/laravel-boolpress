@@ -17,8 +17,6 @@
     <form action=" {{ route('admin.posts.update', $post->id) }}" method="post" method="POST">
         @csrf 
 
-
-
         <div class="mb-4 mt-3">
           <h6>Tags</h6>
 
@@ -41,6 +39,17 @@
           @enderror
       </div>
 
+      {{--POST COVER IMAGE--}}
+{{--      <div class="mb-3">
+         <label class="form-label" for="cover">Post Image</label>
+             @if ($post->cover)
+              <img width="200" src="{{ asset('storage/' . $post->cover )}}" alt="{{ $post->title )}}">
+             @endif
+               <input type="file" class="form-control-file" name="cover" id="cover"> 
+             @error('cover')
+               <div class="text-info">{{ $message }}</div>
+             @enderror
+      </div>--}}
 
           <button class="btn btn-primary mt-3" type="submit">
                 Create a new post
