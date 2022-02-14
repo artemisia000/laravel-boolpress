@@ -26,6 +26,12 @@ class PostController extends Controller
         //B.
         $post = Post::where('slug', $slug)->with(['category','tags'])->first();
 
+        if (! $post) {
+            $post['not_found'] = true;
+       }elseif ($post->cover) {
+            $post->cover = url('storage/'. $post->cover);
+        }
+
         //ritorno dati in json
         return response()->json($post);
     }
